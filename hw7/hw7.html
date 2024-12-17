@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-container">
+        
+        <div class="left-panel">
+            <div class="photo-panel"></div>
+            <div class="text-content">
+                <h1 id="name-display">Jacqueline</h1>
+                <button id="edit-btn">edit</button>
+                <h3>ABOUT ME</h3>
+                <p>I am a freshman in the Department of Management Information Systems at National Chengchi University.</p>
+                <h3>CONTACT</h3>
+                <p>113306080@g.nccu.edu.tw</p>
+                <div class="logo">
+                    <img src="Logo.jpg" alt="NCCU 校徽">
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="right-panel">
+            <section>
+                <h2>Education</h2>
+                <div class="timeline">
+                    <p><span class="year">2024 - now</span> NCCU MIS Department</p>
+                    <p><span class="year">2022 - 2024</span> Ching Cheng HighSchool</p>
+                    <p><span class="year">2019 - 2022</span> Graduated from senior school</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Homework List</h2>
+                <ul>
+                    <li><a href="https://github.com/yjy-ying/HW1.git" target="_blank">作業 1</a></li>
+                    <li><a href="https://github.com/yjy-ying/HW2.git" target="_blank">作業 2</a></li>
+                    <li><a href="https://github.com/yjy-ying/HW3.git" target="_blank">作業 3</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Favorite Music</h2>
+                <div class="music" id="music-container">
+                    <div class="song">
+                        <a href="https://www.youtube.com/watch?v=qX2GsMj7154" target="_blank">
+                            <img src="乾杯.jpg" alt="乾杯">
+                        </a>
+                        <p>乾杯</p>
+                    </div>
+                    <div class="song">
+                        <a href="https://www.youtube.com/watch?v=RTUwaCImChM" target="_blank">
+                            <img src="星空.jpg" alt="星空">
+                        </a>
+                        <p>星空</p>
+                    </div>
+                    <div class="song">
+                        <a href="https://www.youtube.com/watch?v=Qd9YGu3FWgc" target="_blank">
+                            <img src="如煙.jpg" alt="如煙">
+                        </a>
+                        <p>如煙</p>
+                    </div>
+                    <div class="song">
+                        <a href="https://www.youtube.com/watch?v=6Duo89XuYIM" target="_blank">
+                            <img src="洋蔥.jpg" alt="洋蔥">
+                        </a>
+                        <p>洋蔥</p>
+                    </div>
+                </div>
+                <button id="add-btn">Add</button>
+                <div id="form-container" style="display: none;">
+                    <input type="text" id="song-link" placeholder="輸入歌曲網址"><br/>
+                    <input type="text" id="song-name" placeholder="輸入歌名">
+                    <button id="submit-btn">Submit</button>
+                </div>
+                <p class="music-note"> Note: The reasons why I like these songs are because they have awesome melody and lyrics.</p>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        const editBtn = document.getElementById("edit-btn");
+        const nameDisplay = document.getElementById("name-display");
+        let isEditing = false;
+
+        editBtn.addEventListener("click", () => {
+            if (!isEditing) {
+                const currentName = nameDisplay.innerText;
+                nameDisplay.innerHTML = `<input type="text" id="name-input" value="${currentName}">`;
+                editBtn.innerText = "save";
+            } else {
+                const nameInput = document.getElementById("name-input");
+                nameDisplay.innerText = nameInput.value;
+                editBtn.innerText = "edit";
+            }
+            isEditing = !isEditing;
+        });
+
+        const addBtn = document.getElementById("add-btn");
+        const formContainer = document.getElementById("form-container");
+        const submitBtn = document.getElementById("submit-btn");
+        const musicContainer = document.getElementById("music-container");
+
+        addBtn.addEventListener("click", () => {
+            formContainer.style.display = "block";
+        });
+
+        submitBtn.addEventListener("click", () => {
+            const songLink = document.getElementById("song-link").value;
+            const songName = document.getElementById("song-name").value;
+
+            if (songLink && songName) {
+                const newSong = document.createElement("div");
+                newSong.classList.add("song");
+                newSong.innerHTML = `
+                    <a href="${songLink}" target="_blank">
+                        <img src="default.jpg" alt="${songName}">
+                    </a>
+                    <p>${songName}</p>
+                `;
+                musicContainer.appendChild(newSong);
+
+                document.getElementById("song-link").value = "";
+                document.getElementById("song-name").value = "";
+                formContainer.style.display = "none";
+            } else {
+                alert("請輸入完整資料！");
+            }
+        });
+    </script>
+</body>
+</html>

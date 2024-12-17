@@ -1,0 +1,125 @@
+
+body {
+    background-color: #eeede1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.main-container {
+    display: flex;
+    width: 900px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.left-panel {
+    width: 330px;
+    background-color: #333;
+    color: white;
+    display: flex
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 1150px;
+}
+
+.photo-panel {
+    background-image: url('pic.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 50%;
+}
+
+.text-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;     
+    justify-content: flex-start; 
+    flex-grow: 1;               
+    text-align: left;           
+}
+
+.logo {
+    margin-top: auto;
+    text-align: center;
+    padding: 10px;
+}
+
+
+.right-panel {
+    width: 540px;
+    padding: 20px;
+    height: 1150px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+section h2 {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.timeline .year {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #0073e6;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+
+.note {
+    font-size: 0.8em;
+    color: #666;
+}
+
+.music {
+    display: flex;
+    justify-content: space-between;
+}
+
+.song {
+    text-align: center;
+    width: 80px; 
+    flex: 1;      
+}
+
+.song img {
+    width: 60px;
+    height: 60px;
+    display: block;    
+    margin: 0 auto;   
+}
+
+.song p {
+    margin-top: 5px;  
+    font-size: 0.9em;
+    color: #333;      
+}
+
+.music-note {
+    font-size: 0.85em;       
+    color: #666;             
+    margin-top: 10px;        
+    line-height: 1.4;              
+    text-align: justify; 
+    font-style: italic;    
+}
